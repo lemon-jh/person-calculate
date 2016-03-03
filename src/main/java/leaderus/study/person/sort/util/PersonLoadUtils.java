@@ -1,4 +1,4 @@
-package leaderus.study.person.sort;
+package leaderus.study.person.sort.util;
 
 import java.io.BufferedReader;
 import java.io.File;
