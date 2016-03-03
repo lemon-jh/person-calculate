@@ -3,6 +3,11 @@ package leaderus.study.person.calculate.impl;
 import leaderus.study.person.calculate.AbstractPersonCalculate;
 import leaderus.study.person.entry.Person;
 
+/**
+* @Description: 使用二维数组实现分组
+* @author 张福泉 zhang_91026@163.com 
+* @date 2016年3月3日 下午6:23:41 
+*/
 public class MyPersonCaclByMy extends AbstractPersonCalculate{
 	
 	public int[][] target = new int [rowKey.length][conKey.length];

@@ -9,6 +9,11 @@ import com.google.common.collect.ArrayTable;
 import leaderus.study.person.calculate.AbstractPersonCalculate;
 import leaderus.study.person.entry.Person;
 
+/**
+* @Description: 使用arrayTable实现分组
+* @author 张福泉 zhang_91026@163.com 
+* @date 2016年3月3日 下午6:23:18 
+*/
 public class MyPersonCaclByArrayTable extends AbstractPersonCalculate{
 	
 	private ArrayTable<String,String,Integer> personTable= ArrayTable.create(Arrays.asList(rowKey)
