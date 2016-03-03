@@ -58,7 +58,7 @@ public class GenRandomersonDBFile {
 	}
 	
 	public static void main(String[] args) {
-		GenRandomersonDBFile.insertData(100000);
+		GenRandomersonDBFile.insertData(100*10000);
 	}
 	
 	
