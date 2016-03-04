@@ -27,29 +27,27 @@ public class PersonQuicksort {
     } 
     
 	private static int partition(Person s[], int l, int r) {
-		
 		int i = l, j = r;
-		
 		Person x = s[l]; // s[l]即s[i]就是第一个坑
 		while (i < j) {
 			// 从右向左找小于x的数来填s[i]
-			while (i < j && s[j].getId().compareTo(x.getId()) >= 0)
+			while (i < j && s[j].getId()>=(x.getId())){
 				j--;
+			}
 			if (i < j) {
 				s[i] = s[j]; // 将s[j]填到s[i]中，s[j]就形成了一个新的坑
 				i++;
 			}
 			// 从左向右找大于或等于x的数来填s[j]
-			while (i < j && s[i].getId().compareTo(x.getId()) < 0) {
+			while (i < j && s[i].getId()<(x.getId())) {
 				i++;
 			}
-
 			if (i < j) {
 				s[j] = s[i]; // 将s[i]填到s[j]中，s[i]就形成了一个新的坑
 				j--;
 			}
 		}
-		s[i] = x;// 退出时，i等于j。将x填到这个坑中。
+		s[i] = x;//退出时，i等于j。将x填到这个坑中。
 		return i;
 	}
 
@@ -59,12 +57,13 @@ public class PersonQuicksort {
 		Person[] pers = PersonLoadUtils.loadAll();
 		
 		System.out.println(pers.length);
-		
+		long begTime = System.currentTimeMillis();
 		PersonQuicksort.quickSort(pers);
-		
 		for (int i=0;i<100;i++) {
 			System.out.println(pers[90*10000+i]);
 		}
+		long end = System.currentTimeMillis();
+		System.out.println("time = "+(end-begTime));
 		
 	}
 }
