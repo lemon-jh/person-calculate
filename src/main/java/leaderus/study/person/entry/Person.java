@@ -1,9 +1,8 @@
 package leaderus.study.person.entry;
 
-import java.math.BigInteger;
 import java.util.Random;
 
-public class Person {
+public class Person implements Comparable{
 
 	private long id;//在不确定整形长度的情况下,使用商业大整形数据类型
 	
@@ -47,6 +46,21 @@ public class Person {
 		return this;
 	}
 
+
+	public int compareTo(Object o) {
+		if (o == null) {
+            return -1;
+        }
+		if (!(o instanceof Person)){
+			return -1;
+		}
+        if (getClass() != o.getClass()) {
+            return -1;
+        }
+        Person p = (Person) o;
+        
+        return this.id>p.getId()?1:this.id==p.getId()?0:-1;
+	}
 
 
 	public long getId() {
