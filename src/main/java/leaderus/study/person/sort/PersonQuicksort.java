@@ -31,7 +31,7 @@ public class PersonQuicksort {
 		Person x = s[l]; // s[l]即s[i]就是第一个坑
 		while (i < j) {
 			// 从右向左找小于x的数来填s[i]
-			while (i < j && s[j].getId()>=(x.getId())){
+			while (i < j && s[j].compareTo(x)>=0){
 				j--;
 			}
 			if (i < j) {
@@ -39,7 +39,7 @@ public class PersonQuicksort {
 				i++;
 			}
 			// 从左向右找大于或等于x的数来填s[j]
-			while (i < j && s[i].getId()<(x.getId())) {
+			while (i < j && s[i].compareTo(x)<0) {
 				i++;
 			}
 			if (i < j) {
