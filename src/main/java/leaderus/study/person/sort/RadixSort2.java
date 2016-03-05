@@ -5,15 +5,21 @@ import java.util.Random;
 
 public class RadixSort2 {
 	
+	private static int mark;
+	
 	private static int [] counter,bucker;
 	
-	private static int length;
+	private static int length,lp;
 	
 	public static  void sort(int array[],int radix) {
 		
 		if((radix & (radix-1)) != 0){ //判断输入是否为2的N次方
 			throw new RuntimeException("请输入2或2的N次方作为基数");
 		}
+		
+		lp = (int)(Math.log(radix) / Math.log(2));
+		
+		mark = radix-1;
 		
 		int capacity = 1,i=0, max=Integer.MIN_VALUE;
 		
@@ -89,7 +95,8 @@ public class RadixSort2 {
 	 * @return
 	 */
 	private static int getDigit(int num,int radix,int rowNum) {
-		return (num / getNom(rowNum,radix)) % radix;
+		return (num>>(lp*(rowNum-1)))&(mark);
+//		return (num / getNom(rowNum,radix)) % radix;
 		
 		//return (num / ( radix * rowNum)) & (radix-1);
 	}
@@ -133,9 +140,9 @@ public class RadixSort2 {
 		RadixSort2.sort(array, 512);
 		System.out.println("radixs.sort="+(System.nanoTime()-start));
 		
-//		int  br[] = {70,20, 80, 90, 589, 998, 965, 852, 123, 456, 789};
-//		RadixSort2.sort(br, 16);
-//		printArray(br);
+		int  br[] = {70,20, 80, 90, 589, 998, 965, 852, 123, 456, 789};
+		RadixSort2.sort(br, 16);
+		printArray(br);
 	}
 
 
